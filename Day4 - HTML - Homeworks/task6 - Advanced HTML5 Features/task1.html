@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIM-Pengly-Accessories online shop</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Select Your Theme Color</h1>
+<select id="colorPicker">
+    <option value="#ffffff">White</option>
+    <option value="#ff6347">Tomato</option>
+    <option value="#4682b4">Steel Blue</option>
+    <option value="#3cb371">Medium Sea Green</option>
+    <option value="#ffd700">Gold</option>
+</select>
+
+<script>
+    const colorPicker = document.getElementById('colorPicker');
+
+    // Load saved color from localStorage
+    const savedColor = localStorage.getItem('backgroundColor');
+    if (savedColor) {
+        document.body.style.backgroundColor = savedColor;
+        colorPicker.value = savedColor; // Set the dropdown to the saved color
+    }
+
+    // Update background color and save to localStorage
+    colorPicker.addEventListener('change', function() {
+        const selectedColor = colorPicker.value;
+        document.body.style.backgroundColor = selectedColor;
+        localStorage.setItem('backgroundColor', selectedColor);
+    });
+</script>
+
+</body>
+</html>

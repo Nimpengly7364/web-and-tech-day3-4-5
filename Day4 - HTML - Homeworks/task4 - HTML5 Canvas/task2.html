@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIM-Pengly-Accessories online shop</title>
+    <style>
+        #drawingCanvas {
+            border: 1px solid #000;
+            cursor: crosshair;
+        }
+    </style>
+</head>
+<body>
+<h1>Drawing App</h1>
+<canvas id="drawingCanvas" width="500" height="500"></canvas>
+<script>
+    const canvas = document.getElementById('drawingCanvas');
+    const ctx = canvas.getContext('2d');
+    let isDrawing = false;
+
+    // Start drawing when with mouse
+    canvas.addEventListener('mousedown', (e) => {
+        isDrawing = true;
+        ctx.beginPath();
+        ctx.moveTo(e.offsetX, e.offsetY);
+    });
+
+    // Draw lines when the mouse moves
+    canvas.addEventListener('mousemove', (e) => {
+        if (isDrawing) {
+            ctx.lineTo(e.offsetX, e.offsetY);
+            ctx.strokeStyle = '#059fe1';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+        }
+    });
+    // Stop drawing when mouse is released
+    canvas.addEventListener('mouseup', () => {
+        isDrawing = false;
+        ctx.closePath();
+    });
+    // Stop drawing if the mouse leaves the canvas
+    canvas.addEventListener('mouseleave', () => {
+        isDrawing = false;
+    });
+</script>
+</body>
+</html>

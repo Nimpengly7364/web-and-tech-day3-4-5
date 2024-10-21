@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIM-Pengly-Accessories online shop</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Show My Location</h1>
+<button id="locationButton">Get My Location</button>
+<p id="locationOutput"></p>
+
+<script>
+    document.getElementById('locationButton').addEventListener('click', function() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition, showError);
+        } else {
+            document.getElementById('locationOutput').innerText = "Geolocation is not supported by this browser.";
+        }
+    });
+
+    function showPosition(position) {
+        const output = `Latitude: ${position.coords.latitude}, Longitude: ${position.coords.longitude}`;
+        document.getElementById('locationOutput').innerText = output;
+    }
+
+    function showError(error) {
+        switch(error.code) {
+            case error.PERMISSION_DENIED:
+                document.getElementById('locationOutput').innerText = "User denied the request for Geolocation.";
+                break;
+            case error.POSITION_UNAVAILABLE:
+                document.getElementById('locationOutput').innerText = "Location information is unavailable.";
+                break;
+            case error.TIMEOUT:
+                document.getElementById('locationOutput').innerText = "The request to get user location timed out.";
+                break;
+            case error.UNKNOWN_ERROR:
+                document.getElementById('locationOutput').innerText = "An unknown error occurred.";
+                break;
+        }
+    }
+</script>
+
+</body>
+</html>
