@@ -1,0 +1,72 @@
+/* CSS Basics */
+body {
+    font-family: 'Roboto', sans-serif; /* Applying online font */
+    margin: 0;
+    padding: 0;
+}
+
+/* Color and Background */
+.container {
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+/* Alignment and Display */
+h2 {
+    text-align: left; /* Left alignment */
+}
+
+/* CSS Selectors */
+.section-title {
+    color: #333;
+}
+
+/* Highlight class */
+.highlight {
+    background-color: yellow;
+    font-weight: bold;
+}
+
+/* ID Selector */
+#unique {
+    color: red; /* Unique ID styling */
+}
+
+/* Box Model */
+.box-model-example {
+    margin: 10px;
+    padding: 15px;
+    border: 2px solid #333;
+    background-color: #fff;
+}
+
+/* Flexbox */
+.flex-container {
+    display: flex; /* Flexbox layout */
+    justify-content: space-around; /* Space items evenly */
+    margin: 20px 0;
+}
+
+.flex-item {
+    background-color: #008cba;
+    color: white;
+    padding: 20px;
+    flex: 1; /* Grow and fill space */
+    margin: 5px; /* Space between items */
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
